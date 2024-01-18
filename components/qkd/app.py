@@ -96,7 +96,7 @@ def check_key(key_bob, key_alice):
     return shared_key
 
 # Funções para simulação
-def generate_qkd_requests(rede, num_requests, apps, case):
+def generate_qkd_requests(rede, num_requests, apps, case, apps_distribution):
         """
         Gera uma lista de requisições aleatórias de QKD.
 
@@ -130,10 +130,7 @@ def generate_qkd_requests(rede, num_requests, apps, case):
         elif case == 9:
             class_distribution = [0, 0, 0, 0, 1]
         else:
-            raise ValueError("Invalid case parameter")
-        
-        # Distribuição de apps
-        apps_distribution = [0.33, 0.33, 0.33]
+            raise ValueError("Invalid case parameter")
         
         for i in range(num_requests):
             classe = random.choices(classes, class_distribution)[0]
@@ -145,7 +142,7 @@ def generate_qkd_requests(rede, num_requests, apps, case):
             
         return requests
 
-def run_simulations(rede, controlador, n_simulacoes, n_requests, apps, caso, routes_calculation_type):
+def run_simulations(rede, controlador, n_simulacoes, n_requests, apps, apps_distribution, caso, routes_calculation_type, *args):
     """
     Roda as simulações para os protocolos BB84, E91 e B92.
 
@@ -171,8 +168,8 @@ def run_simulations(rede, controlador, n_simulacoes, n_requests, apps, caso, rou
         taxas_sucesso_chaves_bb84 = []
         taxas_sucesso_chaves_b92 = []
         
-        requests = generate_qkd_requests(rede, n_requests, apps, caso)
-        resultados_simulacao = controlador.send_requests(requests, routes_calculation_type)
+        requests = generate_qkd_requests(rede, n_requests, apps, caso, apps_distribution)
+        resultados_simulacao = controlador.send_requests(requests, routes_calculation_type, *args)
         
         for indice_execucao in resultados_simulacao:
             resultado_individual_simulacao = resultados_simulacao[indice_execucao]

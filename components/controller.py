@@ -112,7 +112,7 @@ class Controller():
         """
         return list(nx.all_shortest_paths(self.network.G, alice, bob))
     
-    def send_requests(self, request_list, routes_calculation_type):
+    def send_requests(self, request_list, routes_calculation_type, *args):
         """
         Envia as requisições para a rede que as executa a partir da lista.
         
@@ -130,7 +130,7 @@ class Controller():
             # print(f'{exec_index}ª EXECUÇÃO:')
             # print("Requisições: ", list(r.__str__() for r in request_list))
             # Alocando as rotas para os pedidos possíveis de serem atendidos, ou seja, que não compartilham links
-            requests_info = self.allocate_routes(request_list, routes_calculation_type)
+            requests_info = self.allocate_routes(request_list, routes_calculation_type, *args)
             
             for request in requests_info:
                 # Executa a aplicação QKD
@@ -155,7 +155,7 @@ class Controller():
         
         return results
     
-    def allocate_routes(self, request_list, routes_calculation_type):
+    def allocate_routes(self, request_list, routes_calculation_type, *args):
         """
         Aloca as rotas para os pedidos e atualiza a lista de requisições.
         
@@ -185,11 +185,11 @@ class Controller():
             if routes_calculation_type == 'shortest':
                 routes = self.calculate_shortest_route(request.alice, request.bob)
             elif routes_calculation_type == 'kshortest': 
-                routes = self.calculate_k_shortest_routes(request.alice, request.bob)
+                routes = self.calculate_k_shortest_routes(request.alice, request.bob, *args)
             elif routes_calculation_type == 'all':
                 routes = self.calculate_all_routes(request.alice, request.bob)
             elif routes_calculation_type == 'klength':
-                routes = self.calculate_routes_of_k_length(request.alice, request.bob, 5)
+                routes = self.calculate_routes_of_k_length(request.alice, request.bob, *args)
             
             # Log
             # print(f'Rotas: {routes}')
