@@ -31,8 +31,8 @@ Além disso, os arquivos em Jupyter Notebook dispostos na raiz contém algumas s
 ## Ambiente de testes
 A ferramenta foi executada e testada na prática nos seguintes ambientes:
 1. Windows 11 <br>
-   Kernel =  <br>
-   Python = <br>
+   Kernel = 10.0.22621.3085 <br>
+   Python = Python 3.12.0 <br>
    Módulos Python conforme [requirements.txt](https://github.com/artuenric/qkd-net/blob/0c46fd9d58ff9919eba7d821b81097dcb801f3dc/requirements.txt) <br>
 
 3. Debian GNU/Linux 12.4.0 (bookworm) <br>
