@@ -2,7 +2,10 @@
 Este repositório contém códigos para simulações de redes que utilizam a **Distribuição Quântica de Chaves (QKD)** para atender requisições de criptografia.
 
 ## Informações básicas
-A linguagem utilizada é o Python. As principais redes são baseadas nas topologias reais das redes QKD da China e de Vienna, mas também está disponível além de outras topologias genéricas. Os protocolos QKD utilizados são: BB84, E91, B92. As simulações levam em consideração a topologias da rede, fidelidade dos canais, atributos dos requests, número de qubits e pares EPR disponíveis.
+A linguagem utilizada é o Python. As principais redes são baseadas nas topologias reais das redes QKD da China e de Vienna, mas também está disponível além de outras topologias genéricas. Os protocolos QKD utilizados são: BB84, E91, B92. As simulações levam em consideração a topologias da rede, fidelidade dos canais, atributos dos requests, número de qubits e pares EPR disponíveis.<br>
+
+## Demonstração
+Em [``Simulação Demo``](https://github.com/artuenric/qkd-net/blob/b831ef3fcc2df9f212e8084bb63e7f2080aa6493/Simula%C3%A7%C3%A3o%20Demo.ipynb) é possível conferir a base para criação das simulações. Este Notebook contém um exemplo de simulação explicado passo a passo.
 
 ## Instruções de instalação
 1. Clonar o repositório
